@@ -12,30 +12,30 @@ import java.util.List;
 @RequestMapping("/api/products")
 public class ProductController {
 
-    private final ProductService service;
+    private final ProductService productService;
 
-    public ProductController(ProductService service) {
-        this.service = service;
+    public ProductController(ProductService productService) {
+        this.productService = productService;
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
     public Product create(@Valid @RequestBody Product product) {
-        return service.create(product);
+        return productService.create(product);
     }
 
     @GetMapping
     public List<Product> getAll() {
-        return service.findAll();
+        return productService.findAll();
     }
 
     @GetMapping("/{id}")
     public Product getById(@PathVariable Long id) {
-        return service.findById(id);
+        return productService.findById(id);
     }
 
     @PatchMapping("/{id}/price")
     public Product updatePrice(@PathVariable Long id, @RequestParam Double price) {
-        return service.updatePrice(id, price);
+        return productService.updatePrice(id, price);
     }
 }

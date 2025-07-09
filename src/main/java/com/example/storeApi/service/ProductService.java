@@ -9,28 +9,28 @@ import java.util.List;
 @Service
 public class ProductService {
 
-    private final ProductRepository repository;
+    private final ProductRepository productRepository;
 
-    public ProductService(ProductRepository repository) {
-        this.repository = repository;
+    public ProductService(ProductRepository productRepository) {
+        this.productRepository = productRepository;
     }
 
     public Product create(Product product) {
-        return repository.save(product);
+        return productRepository.save(product);
     }
 
     public List<Product> findAll() {
-        return repository.findAll();
+        return productRepository.findAll();
     }
 
     public Product findById(Long id) {
-        return repository.findById(id)
+        return productRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Product not found"));
     }
 
     public Product updatePrice(Long id, Double newPrice) {
         Product product = findById(id);
         product.setPrice(newPrice);
-        return repository.save(product);
+        return productRepository.save(product);
     }
 }
