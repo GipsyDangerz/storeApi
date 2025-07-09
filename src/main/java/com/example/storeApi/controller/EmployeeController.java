@@ -36,7 +36,7 @@ public class EmployeeController {
         return employeeService.findById(id);
     }
 
-    @PatchMapping("/{id}/price")
+    @PatchMapping("/{id}/updateEmployee")
     public Employee updateEmployee(@PathVariable Long id,
                                    @RequestParam String name,
                                    @RequestParam String role,
