@@ -36,7 +36,7 @@ public class ClientController {
 
     @PatchMapping("/{id}/updateClient")
     public Client updateClient(@PathVariable Long id,
-                                   @RequestBody Client client) {
+                               @RequestBody Client client) {
         return clientService.updateClient(id, client);
     }
 }
