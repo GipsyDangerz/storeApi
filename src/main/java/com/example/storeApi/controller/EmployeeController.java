@@ -38,10 +38,7 @@ public class EmployeeController {
 
     @PatchMapping("/{id}/updateEmployee")
     public Employee updateEmployee(@PathVariable Long id,
-                                   @RequestParam String name,
-                                   @RequestParam String role,
-                                   @RequestParam String gender,
-                                   @RequestParam Integer age) {
-        return employeeService.updateEmployee(id, name, role, gender, age);
+                                   @RequestBody Employee employee) {
+        return employeeService.updateEmployee(id, employee);
     }
 }

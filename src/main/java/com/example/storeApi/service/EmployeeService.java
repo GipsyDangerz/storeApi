@@ -29,12 +29,12 @@ public class EmployeeService {
                 .orElseThrow(() -> new RuntimeException("Employee not found"));
     }
 
-    public Employee updateEmployee(Long id, String name, String role, String gender, Integer age) {
+    public Employee updateEmployee(Long id, Employee employeeData) {
         Employee employee = findById(id);
-        employee.setName(name);
-        employee.setAge(age);
-        employee.setRole(role);
-        employee.setGender(gender);
+        employee.setName(employeeData.getName());
+        employee.setAge(employeeData.getAge());
+        employee.setRole(employeeData.getRole());
+        employee.setGender(employeeData.getGender());
         return employeeRepository.save(employee);
     }
 }
