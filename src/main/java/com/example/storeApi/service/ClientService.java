@@ -28,11 +28,11 @@ public class ClientService {
                 .orElseThrow(() -> new RuntimeException("Client not found"));
     }
 
-    public Client updateClient(Long id, String name, String gender, Integer age) {
+    public Client updateClient(Long id, Client clientData) {
         Client client = findById(id);
-        client.setName(name);
-        client.setAge(age);
-        client.setGender(gender);
+        client.setName(clientData.getName());
+        client.setAge(clientData.getAge());
+        client.setGender(clientData.getGender());
         return clientRepository.save(client);
     }
 }

@@ -36,9 +36,7 @@ public class ClientController {
 
     @PatchMapping("/{id}/updateClient")
     public Client updateClient(@PathVariable Long id,
-                                   @RequestParam String name,
-                                   @RequestParam String gender,
-                                   @RequestParam Integer age) {
-        return clientService.updateClient(id, name, gender, age);
+                                   @RequestBody Client client) {
+        return clientService.updateClient(id, client);
     }
 }
