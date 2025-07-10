@@ -4,6 +4,7 @@ import com.example.storeApi.model.Product;
 import com.example.storeApi.service.ProductService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,6 +21,7 @@ public class ProductController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
+    @PreAuthorize("hasRole('ADMIN')")
     public Product create(@Valid @RequestBody Product product) {
         return productService.create(product);
     }
@@ -35,6 +37,7 @@ public class ProductController {
     }
 
     @PatchMapping("/{id}/price")
+    @PreAuthorize("hasAnyRole('EMPLOYEE', 'ADMIN')")
     public Product updatePrice(@PathVariable Long id, @RequestParam Double price) {
         return productService.updatePrice(id, price);
     }
