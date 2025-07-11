@@ -17,8 +17,8 @@ public class KafkaConsumerService {
 
     @KafkaListener(topics = "product-created", groupId = "store-group")
     public void consume(ProductCreatedEvent event) {
-        ProductEvent entity = new ProductEvent(event.getName(), event.getCategory(), event.getPrice());
+        ProductEvent entity = new ProductEvent(event.getProduct().getName(), event.getProduct().getCategory(), event.getProduct().getPrice());
         productEventRepository.save(entity);
-        System.out.println("Consumed and saved event: " + event.getName());
+        System.out.println("Consumed and saved event: " + event.getProduct().getName());
     }
 }

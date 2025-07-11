@@ -22,12 +22,9 @@ public class ProductService {
     public Product create(Product product) {
         Product createdProduct = productRepository.save(product);
 
-        ProductCreatedEvent event = new ProductCreatedEvent(
-                createdProduct.getId(),
-                createdProduct.getName(),
-                createdProduct.getPrice(),
-                createdProduct.getCategory()
-        );
+        ProductCreatedEvent event = new ProductCreatedEvent();
+        event.setEventType("Product Created");
+        event.setProduct(product);
 
         kafkaProducerService.publishProductCreated(event);
         return createdProduct;
