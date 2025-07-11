@@ -1,9 +1,7 @@
 package com.example.storeApi.controller;
 
 import com.example.storeApi.model.Employee;
-import com.example.storeApi.model.Product;
 import com.example.storeApi.service.EmployeeService;
-import com.example.storeApi.service.ProductService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

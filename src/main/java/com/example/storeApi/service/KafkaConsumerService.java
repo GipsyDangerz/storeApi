@@ -3,7 +3,6 @@ package com.example.storeApi.service;
 import com.example.storeApi.event.ProductCreatedEvent;
 import com.example.storeApi.model.ProductEvent;
 import com.example.storeApi.repository.ProductEventRepository;
-import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
 @Service

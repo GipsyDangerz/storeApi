@@ -16,6 +16,6 @@ public class CustomSecurityProperties {
     public static class User {
         private String username;
         private String password;
-        private String roles; // comma-separated if multiple
+        private String roles;
     }
 }
