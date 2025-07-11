@@ -11,7 +11,7 @@ public class ProductEventConsumer {
 //    Commented this to not have broker errors
 //    We want to simulate Kafka behaviour
 //    @KafkaListener(topics = "product-created", groupId = "store-group")
-//    public void consume(ProductCreatedEvent event) {
-//        log.info("Received ProductCreatedEvent: {}", event);
-//    }
+    public void consume(ProductCreatedEvent event) {
+        log.info("Received ProductCreatedEvent: {}", event);
+    }
 }
