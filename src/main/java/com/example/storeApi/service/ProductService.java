@@ -12,10 +12,11 @@ import java.util.List;
 public class ProductService {
 
     private final ProductRepository productRepository;
-    private KafkaProducerService kafkaProducerService;
+    private final KafkaProducerService kafkaProducerService;
 
-    public ProductService(ProductRepository productRepository) {
+    public ProductService(ProductRepository productRepository, KafkaProducerService kafkaProducerService) {
         this.productRepository = productRepository;
+        this.kafkaProducerService = kafkaProducerService;
     }
 
     public Product create(Product product) {

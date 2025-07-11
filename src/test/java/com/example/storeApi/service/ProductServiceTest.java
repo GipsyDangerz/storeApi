@@ -14,11 +14,13 @@ class ProductServiceTest {
 
     private ProductRepository productRepository;
     private ProductService productService;
+    private KafkaProducerService kafkaProducerService;
 
     @BeforeEach
     void setUp() {
         productRepository = mock(ProductRepository.class);
-        productService = new ProductService(productRepository);
+        kafkaProducerService = mock(KafkaProducerService.class);
+        productService = new ProductService(productRepository, kafkaProducerService); // <-- fixed
     }
 
     @Test
