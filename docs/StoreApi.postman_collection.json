@@ -10,12 +10,24 @@
 			"name": "Get Product by ID",
 			"request": {
 				"auth": {
-					"type": "noauth"
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
 				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/api/products/0",
+					"raw": "localhost:8080/api/products/1",
 					"host": [
 						"localhost"
 					],
@@ -23,7 +35,7 @@
 					"path": [
 						"api",
 						"products",
-						"0"
+						"1"
 					]
 				}
 			},
@@ -33,12 +45,24 @@
 			"name": "Get Employee by ID",
 			"request": {
 				"auth": {
-					"type": "noauth"
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
 				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/api/employees/0",
+					"raw": "localhost:8080/api/employees/1",
 					"host": [
 						"localhost"
 					],
@@ -46,7 +70,7 @@
 					"path": [
 						"api",
 						"employees",
-						"0"
+						"1"
 					]
 				}
 			},
@@ -56,12 +80,24 @@
 			"name": "Get Client by ID",
 			"request": {
 				"auth": {
-					"type": "noauth"
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
 				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/api/clients/0",
+					"raw": "localhost:8080/api/clients/1",
 					"host": [
 						"localhost"
 					],
@@ -69,7 +105,7 @@
 					"path": [
 						"api",
 						"clients",
-						"0"
+						"1"
 					]
 				}
 			},
@@ -96,7 +132,7 @@
 				"method": "PATCH",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/api/products/0/price?price=100",
+					"raw": "localhost:8080/api/products/1/price?price=100",
 					"host": [
 						"localhost"
 					],
@@ -104,7 +140,7 @@
 					"path": [
 						"api",
 						"products",
-						"0",
+						"1",
 						"price"
 					],
 					"query": [
@@ -145,7 +181,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"name\": \"Mouse\",\r\n  \"price\": 29.99,\r\n  \"category\": \"Electronics\"\r\n}",
+					"raw": "{\r\n  \"name\": \"Horse\",\r\n  \"price\": 29.99,\r\n  \"category\": \"Electronics\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -170,7 +206,19 @@
 			"name": "Create Employee",
 			"request": {
 				"auth": {
-					"type": "noauth"
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
 				},
 				"method": "POST",
 				"header": [
@@ -207,7 +255,19 @@
 			"name": "Create Client",
 			"request": {
 				"auth": {
-					"type": "noauth"
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
 				},
 				"method": "POST",
 				"header": [
@@ -219,7 +279,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"name\": \"Bob\",\r\n  \"age\": 30,\r\n  \"gender\": \"M\"\r\n}",
+					"raw": "{\r\n  \"name\": \"Wes\",\r\n  \"age\": 30,\r\n  \"gender\": \"M\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -344,11 +404,26 @@
 		},
 		{
 			"name": "Get All Products - no body",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"auth": {
-					"type": "noauth"
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
 				},
-				"method": "POST",
+				"method": "GET",
 				"header": [
 					{
 						"key": "Content-Type",
@@ -381,11 +456,14 @@
 		},
 		{
 			"name": "Get All Events - no body",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"auth": {
 					"type": "noauth"
 				},
-				"method": "POST",
+				"method": "GET",
 				"header": [
 					{
 						"key": "Content-Type",
@@ -418,11 +496,26 @@
 		},
 		{
 			"name": "Get All Emplyees - no body",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"auth": {
-					"type": "noauth"
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
 				},
-				"method": "POST",
+				"method": "GET",
 				"header": [
 					{
 						"key": "Content-Type",
@@ -455,11 +548,26 @@
 		},
 		{
 			"name": "Get All Clients- no body",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"auth": {
-					"type": "noauth"
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
 				},
-				"method": "POST",
+				"method": "GET",
 				"header": [
 					{
 						"key": "Content-Type",
