@@ -40,16 +40,16 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http
-                .csrf().disable()
+        http.csrf().disable()
+                .headers(headers -> headers.frameOptions().disable())
                 .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/h2-console/**").permitAll()
                         .requestMatchers("/api/products/**").hasAnyRole("ADMIN", "EMPLOYEE")
                         .requestMatchers("/api/employees/**").hasRole("ADMIN")
                         .requestMatchers("/api/clients/**").authenticated()
                         .anyRequest().permitAll()
                 )
                 .httpBasic();
-
         return http.build();
     }
 }
