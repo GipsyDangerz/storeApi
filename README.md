@@ -7,3 +7,6 @@
 ### Endpoints
 
 ### Tests
+
+### Postman Collection
+You can test the API using the included Postman collection.
