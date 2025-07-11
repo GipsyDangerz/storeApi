@@ -1,5 +1,6 @@
 package com.example.storeApi.service;
 
+import com.example.storeApi.event.ProductCreatedEvent;
 import com.example.storeApi.exception.ProductNotFoundException;
 import com.example.storeApi.model.Product;
 import com.example.storeApi.repository.ProductRepository;
@@ -11,13 +12,24 @@ import java.util.List;
 public class ProductService {
 
     private final ProductRepository productRepository;
+    private KafkaProducerService kafkaProducerService;
 
     public ProductService(ProductRepository productRepository) {
         this.productRepository = productRepository;
     }
 
     public Product create(Product product) {
-        return productRepository.save(product);
+        Product createdProduct = productRepository.save(product);
+
+        ProductCreatedEvent event = new ProductCreatedEvent(
+                createdProduct.getId(),
+                createdProduct.getName(),
+                createdProduct.getPrice(),
+                createdProduct.getCategory()
+        );
+
+        kafkaProducerService.publishProductCreated(event);
+        return createdProduct;
     }
 
     public List<Product> findAll() {
