@@ -1,22 +1,29 @@
 package com.example.storeApi.service;
 
 import com.example.storeApi.event.ProductCreatedEvent;
-import lombok.RequiredArgsConstructor;
+import com.example.storeApi.model.ProductEvent;
+import com.example.storeApi.repository.ProductEventRepository;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
 @Slf4j
-@Service
-@RequiredArgsConstructor
 public class KafkaProducerService {
 
-    private final KafkaTemplate<String, ProductCreatedEvent> kafkaTemplate;
+    private final ProductAnalyticsService analyticsService;
 
-    private static final String TOPIC = "product-created";
+    public KafkaProducerService(ProductAnalyticsService analyticsService) {
+        this.analyticsService = analyticsService;
+    }
 
     public void publishProductCreated(ProductCreatedEvent event) {
-        log.info("Sending ProductCreatedEvent to Kafka: {}", event);
-        kafkaTemplate.send(TOPIC, event);
+        System.out.println("📤 Simulating publish to Kafka: " + event);
+
+        // Simulate consuming the event right away
+        ProductEvent productEvent = new ProductEvent(
+                event.getProduct().getName(),
+                event.getProduct().getCategory(),
+                event.getProduct().getPrice()
+        );
+        analyticsService.processEvent(productEvent);
     }
 }

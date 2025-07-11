@@ -2,9 +2,7 @@ package com.example.storeApi.controller;
 
 import com.example.storeApi.model.ProductEvent;
 import com.example.storeApi.repository.ProductEventRepository;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -12,14 +10,14 @@ import java.util.List;
 @RequestMapping("/api/events")
 public class ProductEventController {
 
-    private final ProductEventRepository repository;
+    private final ProductEventRepository eventRepository;
 
-    public ProductEventController(ProductEventRepository repository) {
-        this.repository = repository;
+    public ProductEventController(ProductEventRepository eventRepository) {
+        this.eventRepository = eventRepository;
     }
 
     @GetMapping
     public List<ProductEvent> getAllEvents() {
-        return repository.findAll();
+        return eventRepository.findAll();
     }
 }

@@ -8,9 +8,10 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @Component
 public class ProductEventConsumer {
-
-    @KafkaListener(topics = "product-created", groupId = "analytics-group")
-    public void consume(ProductCreatedEvent event) {
-        log.info("Received ProductCreatedEvent: {}", event);
-    }
+//    Commented this to not have broker errors
+//    We want to simulate Kafka behaviour
+//    @KafkaListener(topics = "product-created", groupId = "store-group")
+//    public void consume(ProductCreatedEvent event) {
+//        log.info("Received ProductCreatedEvent: {}", event);
+//    }
 }
