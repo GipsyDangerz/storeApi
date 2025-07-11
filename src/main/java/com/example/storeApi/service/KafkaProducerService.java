@@ -2,11 +2,11 @@ package com.example.storeApi.service;
 
 import com.example.storeApi.event.ProductCreatedEvent;
 import com.example.storeApi.model.ProductEvent;
-import com.example.storeApi.repository.ProductEventRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 @Slf4j
+@Service
 public class KafkaProducerService {
 
     private final ProductAnalyticsService analyticsService;
@@ -16,13 +16,13 @@ public class KafkaProducerService {
     }
 
     public void publishProductCreated(ProductCreatedEvent event) {
-        System.out.println("📤 Simulating publish to Kafka: " + event);
+        System.out.println("Simulating publish to Kafka: " + event);
 
-        // Simulate consuming the event right away
         ProductEvent productEvent = new ProductEvent(
                 event.getProduct().getName(),
                 event.getProduct().getCategory(),
-                event.getProduct().getPrice()
+                event.getProduct().getPrice(),
+                event.getEventType()
         );
         analyticsService.processEvent(productEvent);
     }

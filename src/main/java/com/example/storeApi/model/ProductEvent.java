@@ -18,13 +18,15 @@ public class ProductEvent {
     private Long id;
 
     private String productName;
+    private String eventType;
     private String category;
     private double price;
     private LocalDateTime eventTime;
 
-    public ProductEvent(String productName, String category, double price) {
+    public ProductEvent(String productName, String category, double price, String eventType) {
         this.productName = productName;
         this.category = category;
+        this.eventType = eventType;
         this.price = price;
         this.eventTime = LocalDateTime.now();
     }
