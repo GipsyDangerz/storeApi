@@ -41,3 +41,6 @@ But the real work happened when our unpaid worker saw that we can`t have a broke
    ```bash
    git clone https://github.com/GipsyDangerz/storeApi.git
    cd storeApi
+   
+- H2 - http://localhost:8080/h2-console
+- Swagger - http://localhost:8080/swagger-ui/index.html
